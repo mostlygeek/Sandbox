@@ -1,0 +1,25 @@
+#canvas {
+    width: 760px;
+    border: 1px solid black;
+    padding: 0.25em;
+}
+#viewport {
+    display: table-cell;
+    height: 200px;
+    width: 410px;
+    border: 1px solid black;;
+    color: #C0C0C0;
+    background-color: #000;
+    vertical-align: bottom;
+    margin: 0px;
+    padding: 0px;
+}
+
+#content {
+    display: block;
+    margin: 0px;
+    overflow: hidden;
+    max-height: 200px;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+}
