@@ -25,10 +25,11 @@
         
 <script type="text/javascript">
 $(function() {
-    var c = $('#chatbox');
+    var c = $('#chatbox'); // closures = awesome.
 
     setInterval(function() {
-        c.append("Now: " + (new Date()) + "\n").scrollTop(c.attr('scrollHeight')); 
+        c.append("Now: " + (new Date()) + "\n") // add some content
+        .scrollTop(c.attr('scrollHeight')); // the magic...scroll :)
     }, 100);
 });
 </script>
