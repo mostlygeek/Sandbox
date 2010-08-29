@@ -14,8 +14,16 @@ body {
 }
 
 #viewport {
+    width: 595px;
     height: 450px;
     overflow: hidden;
+    margin-right: 5px;
+}
+
+#menu {
+    vertical-align: top;
+    width: 160px;
+    float: right;
 }
 div.blank {
     background-color: transparent;

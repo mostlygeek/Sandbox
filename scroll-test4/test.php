@@ -9,11 +9,15 @@
 <body>
     <div id="canvas">
         <h1>Rich Scrolling Content</h1>
+        <div id="menu">
+            <button id="btnImg">add image</button> |
+            <button id="btnPre">add pre formatted text</button> |
+            <button id="btnHtml">add some HTML</button>
+            <p id="out">(scroll debug info to go here)</p>
+        </div>
         <div id="viewport">
             <div class="blank"><!-- used as a space to fake bottom scrolling --></div>
         </div>
-        <p id="out">--</p>
-        <button id="btnImg">image</button> | <button id="btnPre">pre-text</button> | <button id="btnHtml">html</button>
     </div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script>
@@ -26,11 +30,13 @@ $(function() {
             " | scrollHeight: " + viewport.attr('scrollHeight'));
     });
 
-    // clean up invisible block items
+    
     // this causes weird jumping animations... seems like unnecessary
-    // optimization
+    // optimization.. even adding lots of content, doesn't take up that
+    // much more RAM on my system
 
     /*
+    // clean up invisible block items
     setInterval(function() {
         viewport.children('div.block').each(function(i, el) {
             var o = $(el);
@@ -42,11 +48,14 @@ $(function() {
         });
     }, 250);
     */
+
+   // use a custom trigger to append and scroll content.
+   // I can probably just stick a function on this object I guess..
     viewport.bind('append', function(e, obj) {
         var block = $('<div class="block"></div>').html(obj);
         viewport.append(block);
         viewport
-            .stop() // !! KEY!!! stop animating the last scroll
+            .stop() // !!! IMPORTANT !!! stop animating, animation looks much better
             .animate({
                 scrollTop : viewport.attr('scrollHeight')
             }, 1000);
