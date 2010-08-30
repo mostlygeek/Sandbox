@@ -18,7 +18,9 @@
         </div>
         <div id="viewport">
             <div class="vp-block">
+                <div class="content">
                 <a href="#link" class="move">Move</a>
+                </div>
             </div>
         </div>
         <div id="footer">
@@ -34,13 +36,20 @@ $(function() {
     // special functionality to the viewport
     viewport.appendScroll = function(obj)
     {
-        viewport.append(obj)
+        var content = $('<div></div>').addClass('content').html(obj),
+            block = $('<div></div>').addClass('vp-block').html(content);
+
+        viewport.append(block)
             .stop()
             .animate({
                 scrollTop : viewport.attr('scrollHeight')
             }, 500, function() {
                 // remove all the blocks that we don't need anymore
                 $('div.vp-block').not(':last').remove();
+
+                // fixes a firefox issue where removing items
+                // causes the last item to be position weird.
+                viewport.scrollTop(viewport.attr('scrollHeight'));
             });
         return this; 
     }
@@ -54,11 +63,8 @@ $(function() {
     });
 
     $('#rndBlock').click(function() {
-        var block = $('<div class="vp-block"></div>');
-        blockCount = blockCount + 1;
-        block.text("New Block: " + blockCount);
-
-        viewport.appendScroll(block);
+        blockCount = blockCount + 1; 
+        viewport.appendScroll("New Block: " + blockCount);
     });
 });
 </script>

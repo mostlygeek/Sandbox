@@ -5,10 +5,9 @@ body {
 
 #canvas {
     border: 1px solid black;
+    width: 760px;
     margin-left: auto;
     margin-right: auto;
-    width: 760px;
-    
 }
 
 /**
@@ -29,12 +28,24 @@ body {
 
 #viewport {
     /* 760x430 = 16:9 resolution */
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+    width: 760px;
     height: 430px;
-    background-color: #FFFF99;
-    overflow: hidden; 
+    background-color: #a81e1e;
+    overflow: hidden;
 }
 div.vp-block {
+    display: block;
+    width: 760px;
     height: 430px; /** full size of viewport **/
+    background-color: red;
+    padding: 0em;
+    margin: 0 0 0 0;
+}
+div.content {
+    margin: 0em;
+    padding: 1em;
 }
 
 #footer {
