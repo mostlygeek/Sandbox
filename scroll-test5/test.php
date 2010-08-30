@@ -13,14 +13,11 @@
         </div>
         <div id="toolbar-game">
             (Game bar) <br/>
-            <button id="rndBlock">Random Block</button> | Option 2 | Option 3<br/>
+            Fights: 12 / 35 | Health: 59/59 | Strength: 10 ... <br/>
             Put general game information here... 
         </div>
         <div id="viewport">
             <div class="vp-block">
-                <div class="content">
-                <a href="#link" class="move">Move</a>
-                </div>
             </div>
         </div>
         <div id="footer">
@@ -32,6 +29,11 @@
 $(function() {
     var viewport = $('#viewport'),
         blockCount = 0;
+
+    $('#rndBlock').click(function() {
+        blockCount = blockCount + 1;
+        viewport.appendScroll("New Block: " + blockCount);
+    });
 
     // special functionality to the viewport
     viewport.appendScroll = function(obj)
@@ -62,9 +64,17 @@ $(function() {
             + viewport.attr('scrollHeight'));
     });
 
-    $('#rndBlock').click(function() {
-        blockCount = blockCount + 1; 
-        viewport.appendScroll("New Block: " + blockCount);
+    $.get('locations/town.php', function(html) {
+        viewport.appendScroll(html);
+    });
+
+    // basic logic to move around to different pages (ajax loading)
+    $('a.move').live('click', function() {
+        var location = $(this).attr('href');
+        $.get(location, function(html) {
+            viewport.appendScroll(html);
+        });
+        return false; 
     });
 });
 </script>

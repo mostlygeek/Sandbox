@@ -32,14 +32,23 @@ body {
     padding: 0 0 0 0;
     width: 760px;
     height: 430px;
-    background-color: #a81e1e;
+    background-color: black;
+    color: white; 
     overflow: hidden;
 }
+
+#viewport a, a:visited {
+    color: #9BA8C6;
+}
+
+#viewport a.none {
+    color: #404040;
+}
+
 div.vp-block {
     display: block;
     width: 760px;
     height: 430px; /** full size of viewport **/
-    background-color: red;
     padding: 0em;
     margin: 0 0 0 0;
 }
