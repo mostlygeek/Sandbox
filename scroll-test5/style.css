@@ -1,0 +1,42 @@
+body {
+    margin: 0px; 
+    padding: 0px;
+}
+
+#canvas {
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    width: 760px;
+    
+}
+
+/**
+ * to fit on a 1024x768 screen the max canvas height should
+ * be < 670px
+ */
+
+/** TOOLBARS **/
+#toolbar-network {
+    height: 60px;
+    background-color: #bbbbff;
+}
+
+#toolbar-game {
+    height: 90px;
+    background-color: #CDCDCD;
+}
+
+#viewport {
+    /* 760x430 = 16:9 resolution */
+    height: 430px;
+    background-color: #FFFF99;
+    overflow: hidden; 
+}
+div.vp-block {
+    height: 430px; /** full size of viewport **/
+}
+
+#footer {
+    height: 60px;
+}
