@@ -28,16 +28,25 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script>
 $(function() {
-   var hb = $('#hidebox');
+   var hb = $('#hidebox'),
+       animate = true;
    $('#hideUnity').click(function() {
-        hb.stop().animate({
-            scrollTop : hb.attr('scrollHeight')
-        }, 1000);
+        if (animate) {
+            hb.stop().animate({
+                scrollTop : hb.attr('scrollHeight')
+            }, 1000);
+        } else {
+            hb.scrollTop(hb.attr('scrollHeight'));
+        }
    });
    $('#showUnity').click(function() {
-        hb.stop().animate({
-            scrollTop : 0
-        }, 1000);
+        if (animate) {
+            hb.stop().animate({
+                scrollTop : 0
+            }, 1000);
+        } else {
+            hb.scrollTop(0);
+        }
    });
 });
 </script>
